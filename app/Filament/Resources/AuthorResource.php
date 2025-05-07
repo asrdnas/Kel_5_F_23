@@ -25,24 +25,24 @@ class AuthorResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
-                ->required(),
+                    ->required(),
                 Forms\Components\TextInput::make('username')
-                ->required(),
+                    ->required(),
                 Forms\Components\TextInput::make('email')
-                ->email()
-                ->required(),
+                    ->email()
+                    ->required(),
                 Forms\Components\TextInput::make('password')
-                ->password()
-                ->revealable()
-                ->required()
-                ->dehydrateStateUsing(fn ($state) => Hash::make($state))
-                ->dehydrated(fn ($state) => filled($state))
-                ->label('Password'),
+                    ->password()
+                    ->revealable()
+                    ->required()
+                    ->dehydrateStateUsing(fn ($state) => Hash::make($state))
+                    ->dehydrated(fn ($state) => filled($state))
+                    ->label('Password'),
                 Forms\Components\FileUpload::make('avatar')
-                ->image()
-                ->required(),
+                    ->image()
+                    ->required(),
                 Forms\Components\TextArea::make('bio')
-                ->required(),
+                    ->required(),
             ]);
     }
 

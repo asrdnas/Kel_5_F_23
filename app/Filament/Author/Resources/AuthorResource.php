@@ -33,6 +33,8 @@ class AuthorResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required(),
+                Forms\Components\TextInput::make('username')
+                    ->required(),
                 Forms\Components\TextInput::make('password')
                     ->password()
                     ->revealable()
@@ -51,10 +53,11 @@ class AuthorResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->modifyQueryUsing(fn(Builder $query) => $query->where('id', auth()->id()))
+            ->modifyQueryUsing(fn(Builder $query) => $query->where('id', operator: auth()->id()))
             ->columns([
                 Tables\Columns\ImageColumn::make('avatar')->circular(),
                 Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('username'),
                 Tables\Columns\TextColumn::make('email'),
                 Tables\Columns\TextColumn::make('bio')->limit(15),
             ])

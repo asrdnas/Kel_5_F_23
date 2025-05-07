@@ -10,8 +10,8 @@ class CreateNewsTable extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('author_id')->constrained('authors')->onDelete('cascade');
-            $table->foreignId('category_id')->constrained('news_categories')->onDelete('cascade');
+            $table->foreignId('author_id')->constrained()->onDelete('cascade');
+            $table->foreignId('category_id')->constrained('news_categories')->onDelete('cascade'); // Foreign key untuk category_id (sesuaikan dengan nama tabel kategori)
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('thumbnail')->nullable();

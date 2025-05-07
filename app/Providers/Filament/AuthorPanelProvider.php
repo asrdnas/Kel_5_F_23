@@ -23,25 +23,26 @@ class AuthorPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
-            ->id('author')
-            ->path('author')
-            ->login()               
-            ->authGuard('author')
-            ->brandName('Author Panel')        
-            ->colors([
+            ->id('author')  // Menetapkan ID panel
+            ->path('author')  // Menetapkan path URL untuk panel author
+            ->login()  // Menyediakan login untuk panel ini
+            ->authGuard('author')  // Menggunakan auth guard 'author'
+            ->brandName('Author Panel')  // Nama merek untuk panel
+            ->colors([  // Pengaturan warna panel
                 'primary' => Color::Amber,
             ])
-            ->discoverResources(in: app_path('Filament/Author/Resources'), for: 'App\\Filament\\Author\\Resources')
-            ->discoverPages(in: app_path('Filament/Author/Pages'), for: 'App\\Filament\\Author\\Pages')
-            ->pages([
-                Pages\Dashboard::class,
+            ->discoverResources(in: app_path('Filament/Author/Resources'), for: 'App\\Filament\\Author\\Resources')  // Menemukan resources
+            ->discoverPages(in: app_path('Filament/Author/Pages'), for: 'App\\Filament\\Author\\Pages')  // Menemukan pages
+            ->pages([  // Menambahkan halaman dashboard untuk panel Author
+                Pages\Dashboard::class,  // Pastikan Anda memiliki halaman ini
             ])
-            ->discoverWidgets(in: app_path('Filament/Author/Widgets'), for: 'App\\Filament\\Author\\Widgets')
-            ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+            ->discoverWidgets(in: app_path('Filament/Author/Widgets'), for: 'App\\Filament\\Author\\Widgets')  // Menemukan widgets
+            ->widgets([  // Menambahkan widget ke dashboard panel Author
+                \App\Filament\Author\Resources\NoneResource\Widgets\StatsOverviewAuthor::class,  // Widget untuk jumlah berita penulis
+                Widgets\AccountWidget::class,  // Widget untuk akun pengguna
+                Widgets\FilamentInfoWidget::class,  // Widget untuk informasi umum Filament
             ])
-            ->middleware([
+            ->middleware([  // Middleware untuk pengelolaan sesi dan autentikasi
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
                 StartSession::class,
@@ -52,7 +53,7 @@ class AuthorPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
-            ->authMiddleware([
+            ->authMiddleware([  // Middleware untuk autentikasi
                 Authenticate::class,
             ]);
     }

@@ -41,7 +41,7 @@ return [
             'provider' => 'users',
         ],
 
-        'admin' => [ 
+        'admin' => [
             'driver' => 'session',
             'provider' => 'admins',
         ],
@@ -50,7 +50,13 @@ return [
             'driver' => 'session',
             'provider' => 'authors',
         ],
+
+        'superadmin' => [
+            'driver' => 'session',
+            'provider' => 'superadmins',
+        ],
     ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -74,7 +80,7 @@ return [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
-    
+
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
@@ -85,11 +91,12 @@ return [
             'model' => App\Models\Author::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'superadmins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\SuperAdmin::class,
+        ],
     ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -128,6 +135,13 @@ return [
         'authors' => [
             'provider' => 'authors',
             'table' => 'author_password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+
+        'superadmins' => [
+            'provider' => 'superadmins',
+            'table' => 'superadmin_password_resets',
             'expire' => 60,
             'throttle' => 60,
         ],

@@ -12,8 +12,6 @@ class ListNews extends ListRecords
 
     protected function getHeaderActions(): array
     {
-        return [
-            Actions\CreateAction::make(),
-        ];
+        return []; // Tidak menampilkan tombol apa pun
     }
 }

@@ -31,7 +31,6 @@ class NewsCategoryResource extends Resource
                 ->required(),
 
             Forms\Components\TextInput::make('slug')
-                ->label('Slug')
                 ->readOnly()
                 ->required(),
         ]);
