@@ -23,28 +23,17 @@ class NewsResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-newspaper';
 
-    public static function form(Form $form): Form
-    {
-        return $form
-            ->schema([
-                //
-            ]);
-    }
-
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                // Kolom untuk menampilkan nama author
-                Tables\Columns\TextColumn::make('author.name'),
-                // Kolom untuk menampilkan kategori
-                Tables\Columns\TextColumn::make('category.title'),
-                // Kolom untuk judul berita
-                Tables\Columns\TextColumn::make('title'),
-                // Kolom untuk slug
+                Tables\Columns\TextColumn::make('author.name')->sortable(),
+                Tables\Columns\TextColumn::make('category.title')->sortable(),
+                Tables\Columns\TextColumn::make('title')->sortable(),
                 Tables\Columns\TextColumn::make('slug'),
-                // Kolom untuk thumbnail
                 Tables\Columns\ImageColumn::make('thumbnail'),
+                Tables\Columns\ToggleColumn::make('is_featured')
+                    ->label('Terbitkan'),
             ])
             ->filters([
                 // Filter berdasarkan author

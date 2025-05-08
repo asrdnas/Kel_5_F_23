@@ -28,6 +28,7 @@ class SuperadminPanelProvider extends PanelProvider
             ->authGuard('superadmin')
             ->login()
             ->brandName('Super Admin Panel')
+            ->favicon(asset('storage/flashnews.png'))
             ->colors([
                 'primary' => Color::Amber,
             ])
@@ -38,8 +39,9 @@ class SuperadminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Superadmin/Widgets'), for: 'App\\Filament\\Superadmin\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+                \App\Filament\Superadmin\Resources\NoneResource\Widgets\StatsOverviewSuperAdmin::class,
+                //Widgets\AccountWidget::class,
+                //Widgets\FilamentInfoWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,

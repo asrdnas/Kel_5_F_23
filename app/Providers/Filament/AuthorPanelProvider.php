@@ -23,27 +23,28 @@ class AuthorPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
-            ->id('author')  // Menetapkan ID panel
-            ->path('author')  // Menetapkan path URL untuk panel author
-            ->login()  // Menyediakan login untuk panel ini
-            ->authGuard('author')  // Menggunakan auth guard 'author'
-            ->brandName('Author Panel')  // Nama merek untuk panel
-            ->colors([  // Pengaturan warna panel
+            ->id('author') 
+            ->path('author')  
+            ->login()  
+            ->authGuard('author')  
+            ->brandName('Author Panel')  
+            ->favicon(asset('storage/flashnews.png'))
+            ->colors([  
                 'primary' => Color::Amber,
             ])
-            ->discoverResources(in: app_path('Filament/Author/Resources'), for: 'App\\Filament\\Author\\Resources')  // Menemukan resources
-            ->discoverPages(in: app_path('Filament/Author/Pages'), for: 'App\\Filament\\Author\\Pages')  // Menemukan pages
-            ->pages([  // Menambahkan halaman dashboard untuk panel Author
-                Pages\Dashboard::class,  // Pastikan Anda memiliki halaman ini
+            ->discoverResources(in: app_path('Filament/Author/Resources'), for: 'App\\Filament\\Author\\Resources')  
+            ->discoverPages(in: app_path('Filament/Author/Pages'), for: 'App\\Filament\\Author\\Pages')  
+            ->pages([  
+                Pages\Dashboard::class,  
             ])
-            ->discoverWidgets(in: app_path('Filament/Author/Widgets'), for: 'App\\Filament\\Author\\Widgets')  // Menemukan widgets
-            ->widgets([  // Menambahkan widget ke dashboard panel Author
-                \App\Filament\Author\Resources\NoneResource\Widgets\StatsOverviewAuthor::class,  // Widget untuk jumlah berita penulis
-                Widgets\AccountWidget::class,  // Widget untuk akun pengguna
-                Widgets\FilamentInfoWidget::class,  // Widget untuk informasi umum Filament
+            ->discoverWidgets(in: app_path('Filament/Author/Widgets'), for: 'App\\Filament\\Author\\Widgets')  
+            ->widgets([  
+                \App\Filament\Author\Resources\NoneResource\Widgets\StatsOverviewAuthor::class,  
+                //Widgets\AccountWidget::class,  
+                //Widgets\FilamentInfoWidget::class,  
             ])
-            ->middleware([  // Middleware untuk pengelolaan sesi dan autentikasi
-                EncryptCookies::class,
+            ->middleware([  
+                EncryptCookies::class,                
                 AddQueuedCookiesToResponse::class,
                 StartSession::class,
                 AuthenticateSession::class,
@@ -53,7 +54,7 @@ class AuthorPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
-            ->authMiddleware([  // Middleware untuk autentikasi
+            ->authMiddleware([  
                 Authenticate::class,
             ]);
     }

@@ -68,17 +68,13 @@ class AuthorResource extends Resource
                     ->circular(),
 
                 Tables\Columns\TextColumn::make('name')
-                    ->label('Nama')
-                    ->searchable()
-                    ->sortable(),
+                    ->label('Nama'),
 
                 Tables\Columns\TextColumn::make('username')
-                    ->label('Username')
-                    ->searchable(),
+                    ->label('Username'),
 
                 Tables\Columns\TextColumn::make('email')
-                    ->label('Email')
-                    ->searchable(),
+                    ->label('Email'),
             ])
             ->filters([])
             ->actions([

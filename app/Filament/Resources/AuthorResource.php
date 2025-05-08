@@ -54,6 +54,7 @@ class AuthorResource extends Resource
                 ->circular(),
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('username'),
+                Tables\Columns\TextColumn::make('email'),
                 Tables\Columns\TextColumn::make('bio')
                 ->limit(15),
             ])
