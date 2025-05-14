@@ -50,7 +50,7 @@ class AdminResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
-            ->bulkActions([]); // Tidak perlu bulk delete
+            ->bulkActions([]);
     }
 
     public static function getRelations(): array

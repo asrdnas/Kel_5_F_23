@@ -43,9 +43,9 @@ class AuthorResource extends Resource
                 ->label('Password')
                 ->password()
                 ->revealable()
-                ->required(fn ($livewire) => $livewire instanceof Pages\CreateAuthor)
-                ->dehydrated(fn ($state) => filled($state))
-                ->dehydrateStateUsing(fn ($state) => filled($state) ? Hash::make($state) : null),
+                ->required(fn($livewire) => $livewire instanceof Pages\CreateAuthor)
+                ->dehydrated(fn($state) => filled($state))
+                ->dehydrateStateUsing(fn($state) => filled($state) ? Hash::make($state) : null),
 
             Forms\Components\FileUpload::make('avatar')
                 ->label('Foto Profil')

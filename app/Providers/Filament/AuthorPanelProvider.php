@@ -23,28 +23,28 @@ class AuthorPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
-            ->id('author') 
-            ->path('author')  
-            ->login()  
-            ->authGuard('author')  
-            ->brandName('Author Panel')  
+            ->id('author')
+            ->path('author')
+            ->login()
+            ->authGuard('author')
+            ->brandName('Author Panel')
             ->favicon(asset('storage/flashnews.png'))
-            ->colors([  
+            ->colors([
                 'primary' => Color::Amber,
             ])
-            ->discoverResources(in: app_path('Filament/Author/Resources'), for: 'App\\Filament\\Author\\Resources')  
-            ->discoverPages(in: app_path('Filament/Author/Pages'), for: 'App\\Filament\\Author\\Pages')  
-            ->pages([  
-                Pages\Dashboard::class,  
+            ->discoverResources(in: app_path('Filament/Author/Resources'), for: 'App\\Filament\\Author\\Resources')
+            ->discoverPages(in: app_path('Filament/Author/Pages'), for: 'App\\Filament\\Author\\Pages')
+            ->pages([
+                Pages\Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Author/Widgets'), for: 'App\\Filament\\Author\\Widgets')  
-            ->widgets([  
-                \App\Filament\Author\Resources\NoneResource\Widgets\StatsOverviewAuthor::class,  
+            ->discoverWidgets(in: app_path('Filament/Author/Widgets'), for: 'App\\Filament\\Author\\Widgets')
+            ->widgets([
+                \App\Filament\Author\Resources\NoneResource\Widgets\StatsOverviewAuthor::class,
                 //Widgets\AccountWidget::class,  
                 //Widgets\FilamentInfoWidget::class,  
             ])
-            ->middleware([  
-                EncryptCookies::class,                
+            ->middleware([
+                EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
                 StartSession::class,
                 AuthenticateSession::class,
@@ -54,7 +54,7 @@ class AuthorPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
-            ->authMiddleware([  
+            ->authMiddleware([
                 Authenticate::class,
             ]);
     }

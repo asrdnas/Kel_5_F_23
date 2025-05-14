@@ -25,8 +25,8 @@ class BannerResource extends Resource
         return $form
             ->schema([
                 Select::make('news_id')
-                ->relationship('news', 'title')
-                ->required(),
+                    ->relationship('news', 'title')
+                    ->required(),
             ]);
     }
 

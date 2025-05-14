@@ -25,7 +25,8 @@ class NewsCategoryResource extends Resource
         return $form->schema([
             Forms\Components\TextInput::make('title')
                 ->live(onBlur: true)
-                ->afterStateUpdated(fn (Set $set, ?string $state) => 
+                ->afterStateUpdated(
+                    fn(Set $set, ?string $state) =>
                     $set('slug', Str::slug($state))
                 )
                 ->required(),
@@ -54,8 +55,8 @@ class NewsCategoryResource extends Resource
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),   
-                Tables\Actions\DeleteAction::make(), 
+                Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

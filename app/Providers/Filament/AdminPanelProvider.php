@@ -40,7 +40,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                \App\Filament\Widgets\StatsOverviewAdmin::class, // Widget jumlah Author, Kategori, dan Berita
+                \App\Filament\Widgets\StatsOverviewAdmin::class,
                 //Widgets\AccountWidget::class,
                 //Widgets\FilamentInfoWidget::class,
             ])

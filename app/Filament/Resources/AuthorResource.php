@@ -35,8 +35,8 @@ class AuthorResource extends Resource
                     ->password()
                     ->revealable()
                     ->required()
-                    ->dehydrateStateUsing(fn ($state) => Hash::make($state))
-                    ->dehydrated(fn ($state) => filled($state))
+                    ->dehydrateStateUsing(fn($state) => Hash::make($state))
+                    ->dehydrated(fn($state) => filled($state))
                     ->label('Password'),
                 Forms\Components\FileUpload::make('avatar')
                     ->image()
@@ -51,12 +51,12 @@ class AuthorResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('avatar')
-                ->circular(),
+                    ->circular(),
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('username'),
                 Tables\Columns\TextColumn::make('email'),
                 Tables\Columns\TextColumn::make('bio')
-                ->limit(15),
+                    ->limit(15),
             ])
             ->filters([
                 //

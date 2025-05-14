@@ -36,22 +36,16 @@ class NewsResource extends Resource
                     ->label('Terbitkan'),
             ])
             ->filters([
-                // Filter berdasarkan author
                 Tables\Filters\SelectFilter::make('author_id')
                     ->relationship('author', 'name'),
-
-                // Filter berdasarkan kategori berita
                 Tables\Filters\SelectFilter::make('category_id')
                     ->relationship('category', 'title'),
             ])
             ->actions([
-                // Aksi untuk melihat detail berita
                 Tables\Actions\ViewAction::make(),
-                // Aksi untuk menghapus berita
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                // Aksi untuk menghapus secara massal
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
@@ -61,7 +55,6 @@ class NewsResource extends Resource
     public static function getRelations(): array
     {
         return [
-            // Tambahkan relasi jika ada
         ];
     }
 
@@ -69,7 +62,6 @@ class NewsResource extends Resource
     {
         return [
             'index' => Pages\ListNews::route('/'),
-            // Tambahkan halaman lainnya seperti 'create' atau 'edit' jika dibutuhkan
         ];
     }
 }
