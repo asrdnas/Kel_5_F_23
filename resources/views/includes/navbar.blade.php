@@ -1,4 +1,9 @@
 <!-- Nav -->
+<style>
+    .rounded-full{
+        background-color: blue;
+    }
+</style>
 <div class="sticky top-0 z-50 flex justify-between py-5 px-4 lg:px-14 bg-white shadow-sm">
     <div class="flex gap-10 w-full">
         <!-- Logo dan Menu -->
@@ -6,8 +11,8 @@
             <!-- Logo -->
             <a href="{{ route('landing') }}">
                 <div class="flex items-center gap-2">
-                    <img src="{{ asset('assets/img/flashnews.png') }}" alt="Logo" class="w-8 lg:w-10 rounded-full">
-                    <p class="text-lg lg:text-xl font-bold">Flash News</p>
+                    <img src="{{ asset('assets/img/image.png') }}" alt="Logo" class="w-8 lg:w-10 rounded-full">
+                    <p class="text-lg lg:text-xl font-bold">Anas News</p>
                 </div>
             </a>
             <button class="lg:hidden text-primary text-2xl focus:outline-none" id="menu-toggle">
@@ -50,11 +55,10 @@
                 id="searchInput" />
             <!-- Icon Search -->
             <span class="absolute inset-y-0 left-3 flex items-center text-slate-400">
-                <img src="{{ asset('assets/img/search.png') }}" alt="search" class="w-4">
+                <img src="{{ asset('assets/img/image.png') }}" alt="search" class="w-4">
             </span>
         </div>
-        <a href="/author/login"
-            class="bg-primary px-8 py-2 rounded-full text-white font-semibold h-fit text-sm lg:text-base">
+        <a href="/author/login" class="bg-primary px-8 py-2 rounded-full text-white font-semibold h-fit text-sm lg:text-base">
             Masuk
         </a>
     </div>

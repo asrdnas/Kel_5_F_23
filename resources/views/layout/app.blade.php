@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@yield('title')</title>
-  <link rel="shortcut icon" href="{{ asset('assets/img/flashnews.png') }}">
+  <link rel="shortcut icon" href="{{ asset('assets/img/image.png') }}">
   <link href="{{ asset('assets/css/output.css')}}" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
