@@ -76,7 +76,7 @@
         <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-12 gap-5">
             <!-- Berita Utama -->
             <div
-                class="relative col-span-7 lg:row-span-3 border border-slate-200 p-3 rounded-xl hover:border-primary hover:cursor-pointer">
+                class="relative col-span-7  lg:row-span-3 border border-slate-200 p-3 rounded-xl hover:border-primary hover:cursor-pointer">
                 <a href="{{ route('news.show', $news[0]->slug) }}">
                     <div class="bg-primary text-white rounded-full w-fit px-4 py-1 font-normal ml-5 mt-5 absolute">
                         {{ $news[0]->category->title }}

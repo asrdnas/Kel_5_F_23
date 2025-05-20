@@ -6,6 +6,7 @@ use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Author;
+use App\Models\SuperAdmin;
 use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
@@ -17,11 +18,11 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        Author::create([
-            'name' => 'Test User',
-            'username' => 'Test User',
-            'email' => 'sasa@gmail.com',
-            'password' => Hash::make('sasa123'),
+        SuperAdmin::create([
+            'name' => 'SuperAdmin',
+            'username' => 'superadmin',
+            'email' => 'superadmin@flashnews.com',
+            'password' => Hash::make('superadmin'),
         ]);
     }
 }
