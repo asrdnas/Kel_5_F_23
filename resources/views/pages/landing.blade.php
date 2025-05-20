@@ -67,58 +67,59 @@
 
     <!-- Berita Terbaru -->
     <div class="flex flex-col px-4 md:px-10 lg:px-14 mt-10">
-        <div class="flex flex-col md:flex-row w-full mb-6">
-            <div class="font-bold text-2xl text-center md:text-left">
-                <p>Berita Terbaru</p>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-12 gap-5">
-            <!-- Berita Utama -->
-            <div
-                class="relative col-span-7  lg:row-span-3 border border-slate-200 p-3 rounded-xl hover:border-primary hover:cursor-pointer">
-                <a href="{{ route('news.show', $news[0]->slug) }}">
-                    <div class="bg-primary text-white rounded-full w-fit px-4 py-1 font-normal ml-5 mt-5 absolute">
-                        {{ $news[0]->category->title }}
-                    </div>
-                    <img src="{{ asset('storage/' . $news[0]->thumbnail) }}" alt="berita1" class="rounded-2xl w-full"
-                        style="height: 650px; object-fit: cover;">
-                    <p class="font-bold text-xl mt-3">
-                        {{ $news[0]->title }}
-                    </p>
-                    <p class="text-slate-400 text-base mt-1">
-                        {!! \Str::limit($news[0]->content, 100) !!}
-                    </p>
-                    <p class="text-slate-400 text-base mt-1">
-                        {{ $news[0]->created_at->format('d F Y') }}
-                    </p>
-                </a>
-            </div>
-
-            <!-- Berita Tambahan -->
-            @foreach ($news->skip(1) as $news)
-                <a href="{{ route('news.show', $news->slug) }}"
-                    class="relative col-span-5 flex flex-col md:flex-row gap-3 border border-slate-200 p-3 rounded-xl hover:border-primary hover:cursor-pointer">
-                    <!-- Bungkus gambar dan badge di dalam relative wrapper -->
-                    <div class="relative w-full md:w-[250px]">
-                        <div
-                            class="bg-primary text-white rounded-full w-fit px-4 py-1 font-normal ml-2 mt-2 absolute text-sm z-10">
-                            {{ $news->category->title }}
-                        </div>
-                        <img src="{{ asset('storage/' . $news->thumbnail) }}" alt="berita2" class="rounded-xl w-full"
-                            style="height: 190px; object-fit: cover;">
-                    </div>
-                    <div class="mt-2 md:mt-0">
-                        <p class="font-semibold text-lg">{{ $news->title }}</p>
-                        <p class="text-slate-400 mt-3 text-sm font-normal">
-                            {!! \Str::limit($news->content, 100) !!}
-                        </p>
-                    </div>
-                </a>
-            @endforeach
-
+    <div class="flex flex-col md:flex-row w-full mb-6">
+        <div class="font-bold text-2xl text-center md:text-left">
+            <p>Berita Terbaru</p>
         </div>
     </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-12 gap-5">
+        <!-- Berita Utama -->
+        @if($news->count() > 0)
+        <div
+            class="relative col-span-7 lg:row-span-3 border border-slate-200 p-3 rounded-xl hover:border-primary hover:cursor-pointer">
+            <a href="{{ route('news.show', $news[0]->slug) }}">
+                <div class="bg-primary text-white rounded-full w-fit px-4 py-1 font-normal ml-5 mt-5 absolute">
+                    {{ $news[0]->category->title }}
+                </div>
+                <img src="{{ asset('storage/' . $news[0]->thumbnail) }}" alt="berita1" class="rounded-2xl w-full"
+                    style="height: 500px; object-fit: cover;">
+                <p class="font-bold text-xl mt-3">
+                    {{ $news[0]->title }}
+                </p>
+                <p class="text-slate-400 text-base mt-1">
+                    {!! \Str::limit(strip_tags($news[0]->content), 100) !!}
+                </p>
+                <p class="text-slate-400 text-base mt-1">
+                    {{ $news[0]->created_at->format('d F Y') }}
+                </p>
+            </a>
+        </div>
+        @endif
+
+        <!-- Berita Tambahan -->
+        @foreach ($news->skip(1) as $item)
+        <a href="{{ route('news.show', $item->slug) }}"
+            class="relative col-span-5 flex flex-col h-fit md:flex-row gap-3 border border-slate-200 p-3 rounded-xl hover:border-primary hover:cursor-pointer">
+            <div class="relative w-full md:w-[250px]">
+                <div
+                    class="bg-primary text-white rounded-full w-fit px-4 py-1 font-normal ml-2 mt-2 absolute text-sm z-10">
+                    {{ $item->category->title }}
+                </div>
+                <img src="{{ asset('storage/' . $item->thumbnail) }}" alt="berita2" class="rounded-xl w-full"
+                    style="height: 150px; width: 250px; object-fit: cover;">
+            </div>
+            <div class="mt-2 md:mt-0">
+                <p class="font-semibold text-lg">{{ $item->title }}</p>
+                <p class="text-slate-400 mt-3 text-sm font-normal">
+                    {!! \Str::limit(strip_tags($item->content), 100) !!}
+                </p>
+            </div>
+        </a>
+        @endforeach
+
+    </div>
+</div>
 
 
     <!-- Author -->
