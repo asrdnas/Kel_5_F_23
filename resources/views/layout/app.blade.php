@@ -21,5 +21,37 @@
 <script src="{{ asset('assets/js/swiper.js') }}"></script>
 
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let searchInput = document.getElementById("searchInput");
+        let searchIcon = document.getElementById("searchIcon"); // Ikon pencarian jika ada
+
+        // Pastikan input ditemukan sebelum menambahkan event listener
+        if (searchInput) {
+            searchInput.addEventListener("keypress", function (event) {
+                if (event.key === "Enter") {
+                    performSearch();
+                }
+            });
+        }
+
+        // Pastikan ikon bisa diklik untuk pencarian
+        if (searchIcon) {
+            searchIcon.addEventListener("click", function () {
+                performSearch();
+            });
+        }
+    });
+
+    function performSearch() {
+        let query = document.getElementById("searchInput").value.trim();
+        if (query === "") {
+            alert("Harap masukkan kata kunci sebelum mencari!");
+            return;
+        }
+
+        window.location.href = "/search?query=" + encodeURIComponent(query);
+    }
+</script>
 
 </html>

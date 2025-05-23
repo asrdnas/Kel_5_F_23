@@ -25,4 +25,14 @@ class NewsController extends Controller
         $category = NewsCategory::where('slug', $slug)->first();
         return view('pages.news.category', compact('category'));
     }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $results = News::where('title', 'LIKE', "%{$query}%")
+            ->orWhere('content', 'LIKE', "%{$query}%")
+            ->get();
+
+        return view('pages.search', compact('results', 'query'));
+    }
 }

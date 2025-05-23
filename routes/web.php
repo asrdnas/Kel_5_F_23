@@ -11,3 +11,4 @@ Route::get('/news/{slug}', [NewsController::class, 'show'])->name('news.show');
 Route::get('/category/{slug}', [NewsController::class, 'category'])->name('news.category');
 
 Route::get('/author/{username}', [AuthorController::class, 'show'])->name('author.show');
+Route::get('/search', [NewsController::class, 'search'])->name('search');
