@@ -51,12 +51,12 @@
     <div class="hidden lg:flex items-center gap-2 mt-4 lg:mt-0 w-full lg:w-auto relative">
         <div class="relative w-full lg:w-auto">
             <input type="text" placeholder="Cari berita..."
-                style="background-color: white; border: 1px solid #ccc; border-radius: 999px; padding: 8px 16px; padding-left: 32px; width: 250px; font-size: 14px; outline: none;"
+                style="background-color: white; border: 1px solid #1137f4; border-radius: 999px; padding: 8px 16px; padding-left: 32px; width: 250px; font-size: 14px; outline: none;"
                 id="searchInput" />
             <!-- Icon Search -->
             <button onclick="performSearch()"
                 class="absolute inset-y-0 left-3 flex items-center text-slate-400 bg-transparent border-none cursor-pointer">
-                <img src="{{ asset('assets/img/search.png') }}" alt="search" class="w-4">
+                <img src="{{ asset('assets/img/image.png') }}" alt="search" class="w-4">
             </button>
         </div>
 
