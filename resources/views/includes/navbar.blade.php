@@ -30,7 +30,7 @@
                     <a href="{{ route('landing') }}" class="{{ request()->is('/') ? 'text-primary' : '' }}"
                         style="transition: all 0.3s; padding: 0.25rem 0.5rem; border-radius: 0.700rem;"
                         onmouseover="this.style.backgroundColor='#1D4ED8'; this.style.color='white';"
-                        onmouseout="this.style.backgroundColor=''; this.style.color='';">
+                        onmouseout="this.style.backgroundColor=''; this.style.color='blue';">
                         Beranda
                     </a>
                 </li>
@@ -62,7 +62,7 @@
             <!-- Icon Search -->
             <button onclick="performSearch()"
                 class="absolute inset-y-0 left-3 flex items-center text-slate-400 bg-transparent border-none cursor-pointer">
-                <img src="{{ asset('assets/img/image.png') }}" alt="search" class="w-4">
+                <img src="{{ asset('assets/img/search.png') }}" alt="search" class="w-4">
             </button>
         </div>
 
