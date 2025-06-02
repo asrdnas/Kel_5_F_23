@@ -27,14 +27,13 @@
                 class="flex flex-col lg:flex-row items-start lg:items-center gap-4 font-medium text-base w-full lg:w-auto">
                 {{-- Link ke Beranda --}}
                 <li>
-    <a href="{{ route('landing') }}"
-       class="{{ request()->is('/') ? 'text-primary' : '' }}"
-       style="transition: all 0.3s; padding: 0.25rem 0.5rem; border-radius: 0.700rem; {{ request()->is('/') ? 'color: #1D4ED8;' : '' }}"
-       onmouseover="this.style.backgroundColor='#1D4ED8'; this.style.color='white';"
-       onmouseout="this.style.backgroundColor=''; this.style.color='{{ request()->is('/') ? '#1D4ED8' : '' }}';">
-        Beranda
-    </a>
-</li>
+                    <a href="{{ route('landing') }}" class="{{ request()->is('/') ? 'text-primary' : '' }}"
+                        style="transition: all 0.3s; padding: 0.25rem 0.5rem; border-radius: 0.700rem; {{ request()->is('/') ? 'color: #1D4ED8;' : '' }}"
+                        onmouseover="this.style.backgroundColor='#1D4ED8'; this.style.color='white';"
+                        onmouseout="this.style.backgroundColor=''; this.style.color='{{ request()->is('/') ? '#1D4ED8' : '' }}';">
+                        Beranda
+                    </a>
+                </li>
 
 
                 {{-- Link ke setiap kategori --}}
